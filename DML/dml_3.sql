@@ -1,0 +1,1 @@
+delete from classes where classes.id NOT IN (select id_class from catalog)

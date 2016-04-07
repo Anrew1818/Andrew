@@ -1,0 +1,1 @@
+select * from (select cl_id, COUNT(DISTINCT id_class) as classc FROM catalog, (select cl_id, id_cat from items, (select cl_id, id_item from orders, (select clients.id as cl_id from clients) where orders.id_client = cl_id) where items.id = id_item) where catalog.id = id_cat GROUP BY cl_id order by classc desc) where classc > 2
