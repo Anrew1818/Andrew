@@ -1,0 +1,9 @@
+CREATE OR ALTER TRIGGER ADD_DISC FOR CLIENTS 
+ACTIVE BEFORE UPDATE POSITION 0 
+AS 
+declare variable summ int = 15500; 
+declare variable limit int = 15000; 
+begin 
+if (summ > limit) then 
+update clients set clients.discount = 5 where clients.id = NEW.id; 
+end
